@@ -3,9 +3,11 @@ kind: Service
 metadata:
   name: redis-sentinel
 spec:
+  type: NodePort
   ports:
   - port: 26379
     targetPort: 26379
+    nodePort: 30079 
   selector:
     app: redis
     role: sentinel
