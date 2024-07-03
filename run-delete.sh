@@ -1,3 +1,4 @@
+kubectl delete -f src/configmaps/redis-master-configmap.yaml
 kubectl delete -f src/deployments/redis-master-deployment.yaml
 kubectl delete -f src/services/redis-master-service.yaml
 kubectl delete -f src/configmaps/redis-slave-configmap.yaml
