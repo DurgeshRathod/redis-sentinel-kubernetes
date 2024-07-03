@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-sentinel
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: redis
+      role: sentinel
+  template:
+    metadata:
+      labels:
+        app: redis
+        role: sentinel
+    spec:
+      initContainers:
+      - name: init-copy-config
+        image: busybox
+        command: ['sh', '-c', 'cp /etc/config/sentinel.conf /etc/redis/sentinel.conf']
+        volumeMounts:
+        - name: sentinel-config
+          mountPath: /etc/config
+        - name: redis-config
+          mountPath: /etc/redis
+      containers:
+      - name: sentinel
+        image: redis:6.0
+        command: ["redis-sentinel", "/etc/redis/sentinel.conf"]
+        ports:
+        - containerPort: 26379
+        volumeMounts:
+        - name: redis-config
+          mountPath: /etc/redis
+      volumes:
+      - name: sentinel-config
+        configMap:
+          name: redis-sentinel-config
+      - name: redis-config
+        emptyDir: {}

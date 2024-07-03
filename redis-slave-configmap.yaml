@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: redis-slave-config
+data:
+  redis.conf: |
+    slaveof redis-master 6379
