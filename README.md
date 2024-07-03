@@ -31,9 +31,3 @@ The `run.sh` script automates the deployment of Redis Master, Redis Slave, and R
 - **Redis Sentinel ConfigMap**: Configures Redis Sentinel instances for monitoring and failover.
 - **Redis Sentinel Deployment**: Deploys Redis Sentinel instances to monitor Redis Master and Slave nodes.
 - **Redis Sentinel Service**: Exposes the Redis Sentinel deployment as a Kubernetes service.
-
-## Notes
-
-- Customize the YAML files (`redis-master-deployment.yaml`, `redis-master-service.yaml`, etc.) according to your specific environment and requirements.
-- Ensure proper network configuration and access controls are in place for Redis instances deployed in Kubernetes.
-- Monitor Kubernetes logs and Redis Sentinel logs to ensure proper operation and fault tolerance.
