@@ -1,3 +1,4 @@
+kubectl apply -f src/configmaps/redis-master-configmap.yaml
 kubectl apply -f src/deployments/redis-master-deployment.yaml
 kubectl apply -f src/services/redis-master-service.yaml
 kubectl apply -f src/configmaps/redis-slave-configmap.yaml

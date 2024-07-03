@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: redis-slave
 spec:
-  replicas: 2
+  replicas: 3  # Adjust as per your production needs
   selector:
     matchLabels:
       app: redis
@@ -24,6 +24,17 @@ spec:
         - name: redis-config
           mountPath: /etc/redis/redis.conf
           subPath: redis.conf
+        resources:
+          requests:
+            cpu: "0.5"
+            memory: "512Mi"
+          limits:
+            cpu: "1"
+            memory: "1Gi"
+        # Enable persistence if needed
+        args:
+        - "--appendonly"
+        - "yes"
       volumes:
       - name: redis-config
         configMap:

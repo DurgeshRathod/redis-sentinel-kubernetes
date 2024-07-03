@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: redis-slave-config
+  name: redis-master-config
 data:
   redis.conf: |
-    # Redis configuration file for slave
+    # Redis configuration file
     port 6379
     bind 0.0.0.0
     protected-mode no
-    # Set slave mode
-    slaveof redis-master 6379
+    # Enable persistence
+    appendonly yes
     # Set a password for authentication (replace with a secure password)
-    requirepass your_redis_slave_password
+    requirepass your_redis_master_password

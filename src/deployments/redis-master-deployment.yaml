@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: redis-master
 spec:
-  replicas: 1
+  replicas: 3  # Adjust as per your production needs
   selector:
     matchLabels:
       app: redis
@@ -17,5 +17,25 @@ spec:
       containers:
       - name: redis
         image: redis:6.0
+        command: ["redis-server", "/etc/redis/redis.conf"]
         ports:
         - containerPort: 6379
+        volumeMounts:
+        - name: redis-config
+          mountPath: /etc/redis/redis.conf
+          subPath: redis.conf
+        resources:
+          requests:
+            cpu: "0.5"
+            memory: "512Mi"
+          limits:
+            cpu: "1"
+            memory: "1Gi"
+        # Enable persistence
+        args:
+        - "--appendonly"
+        - "yes"
+      volumes:
+      - name: redis-config
+        configMap:
+          name: redis-master-config

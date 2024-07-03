@@ -4,7 +4,10 @@ metadata:
   name: redis-sentinel-config
 data:
   sentinel.conf: |
+    # Sentinel configuration file
     sentinel monitor mymaster redis-master 6379 2
     sentinel down-after-milliseconds mymaster 5000
     sentinel failover-timeout mymaster 5000
     sentinel parallel-syncs mymaster 1
+    # Set a password for authentication (replace with a secure password)
+    sentinel auth-pass mymaster your_redis_sentinel_password

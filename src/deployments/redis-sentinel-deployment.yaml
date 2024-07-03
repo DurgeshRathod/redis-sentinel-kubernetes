@@ -32,6 +32,13 @@ spec:
         volumeMounts:
         - name: redis-config
           mountPath: /etc/redis
+        resources:
+          requests:
+            cpu: "0.2"
+            memory: "256Mi"
+          limits:
+            cpu: "0.5"
+            memory: "512Mi"
       volumes:
       - name: sentinel-config
         configMap:
