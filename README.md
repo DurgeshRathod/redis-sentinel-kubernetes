@@ -28,6 +28,7 @@ The `run.sh` script automates the deployment of Redis Master, Redis Slave, and R
 
 ## :package: Components Deployed
 
+- **Redis Master ConfigMap**: Provides configuration data for Redis Master instances.
 - **Redis Master Deployment**: Manages the primary Redis instance.
 - **Redis Master Service**: Exposes the Redis Master deployment as a Kubernetes service.
 - **Redis Slave ConfigMap**: Provides configuration data for Redis Slave instances.
@@ -36,4 +37,3 @@ The `run.sh` script automates the deployment of Redis Master, Redis Slave, and R
 - **Redis Sentinel ConfigMap**: Configures Redis Sentinel instances for monitoring and failover.
 - **Redis Sentinel Deployment**: Deploys Redis Sentinel instances to monitor Redis Master and Slave nodes.
 - **Redis Sentinel Service**: Exposes the Redis Sentinel deployment as a Kubernetes service.
-- **Redis Master ConfigMap**: Provides configuration data for Redis Master instances.
