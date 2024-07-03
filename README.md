@@ -1,8 +1,13 @@
-# redis-sentinel-kubernetes
+# :rocket: redis-sentinel-kubernetes
 
 This repository contains configurations and setup instructions for deploying Redis Sentinel with Kubernetes. Redis Sentinel is a system designed to ensure high availability and monitoring of Redis instances.
 
-## Setup
+## :gear: Prerequisites
+
+Before you begin, ensure you have the following installed:
+- [Kubernetes CLI (`kubectl`)](https://kubernetes.io/docs/tasks/tools/install-kubectl/): To interact with your Kubernetes cluster.
+
+## :computer: Setup
 
 Clone the repository:
 ```bash
@@ -19,9 +24,9 @@ Run the deployment script:
 sh run.sh
 ```
 
-The `run.sh` script automates the deployment of Redis Master, Redis Slave, and Redis Sentinel components in Kubernetes. Ensure that you have `kubectl` configured to point to your Kubernetes cluster before running the script.
+The `run.sh` script automates the deployment of Redis Master, Redis Slave, and Redis Sentinel components in Kubernetes.
 
-## Components Deployed
+## :package: Components Deployed
 
 - **Redis Master Deployment**: Manages the primary Redis instance.
 - **Redis Master Service**: Exposes the Redis Master deployment as a Kubernetes service.
